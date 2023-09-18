@@ -2,7 +2,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { SupportedLanguageEnum } from "utils/enums";
 import { translationsEn } from "./translationsEn";
-import { translationsIs } from "./translationsIs";
 
 i18n.use(initReactI18next).init({
     resources: {
@@ -11,7 +10,7 @@ i18n.use(initReactI18next).init({
         },
     },
     lng: localStorage.getItem("lng") || SupportedLanguageEnum[SupportedLanguageEnum.English],
-    fallbackLng: "Icelandic",
+    fallbackLng: "English",
     debug: false,
 
     ns: ["translations"],

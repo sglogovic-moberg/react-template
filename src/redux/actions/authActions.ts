@@ -4,9 +4,6 @@ import { reduxAction } from "utils/constants";
 import { getRefreshToken, removeUserLocalStorageData, setUserLocalStorageData } from "utils/storageActions";
 import {
     ILoginParams,
-    IRequestPasswordResetParams,
-    IPasswordResetParams,
-    IConfirmAccountParams,
 } from "redux/models/authModels";
 
 export const authAdminThunk = createAsyncThunk("auth/authAdmin", async data => {

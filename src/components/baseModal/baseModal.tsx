@@ -7,7 +7,6 @@ import { useAppDispatch } from "redux/store";
 import { confirmModal, declineModal } from "redux/reducers/modalReducer";
 import { ModalActionButtonTypeEnum, ModalTypeEnum } from "utils/enums";
 import BaseButton from "components/baseButton/baseButton";
-import { TrashIcon } from "components/icons";
 
 export interface BaseModalProps {
     title: string;
@@ -45,18 +44,7 @@ function BaseModal(props: BaseModalProps) {
     };
 
     function renderActionButton(modalActionButtonType: ModalActionButtonTypeEnum) {
-        if (modalActionButtonType == ModalActionButtonTypeEnum.Delete) {
-            return <BaseButton
-                handleClick={onOkClick}
-                text={actionButtonText}
-                size={"medium"}
-                styleType={"solid"}
-                danger={true}
-                leftIcon={<TrashIcon className="filter-footer--filter-icon" color="white" />} />
-        }
-        else {
-            return <BaseButton handleClick={onOkClick} text={actionButtonText} styleType="solid" />
-        }
+        return <BaseButton handleClick={onOkClick} text={actionButtonText} styleType="solid" />;
     }
 
     return (

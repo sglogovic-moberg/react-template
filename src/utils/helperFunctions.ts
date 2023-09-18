@@ -1,11 +1,7 @@
 import { AsyncThunk, ThunkDispatch } from "@reduxjs/toolkit";
-import TableCellCurrency from "components/tableCellComponents/tableCellCurrency/tableCellCurrency";
-import TableCellDate from "components/tableCellComponents/tableCellDate/tableCellDate";
-import { ExportType, PermissionType, StatementNotificationType, SupportedLanguageEnum } from "./enums";
-import i18n from "./language/languageClient";
-import { ILookupResponse } from "./models";
-import { IPortalRouteElement, PortalRouteElements } from "./routing/pathsAndElements";
 import { nameof } from "ts-simple-nameof";
+import { SupportedLanguageEnum } from "./enums";
+import i18n from "./language/languageClient";
 
 export async function executeContainerThunkDispatch<ReturnType, ArgumentType>(
     containerDispatch: ThunkDispatch<any, any, any>,
@@ -36,12 +32,6 @@ export const devConsoleError = (param1?: any, param2?: any) => {
 
 export const devConsoleAssert = (condition: boolean) => {
     process.env.NODE_ENV != "production" && console.assert(condition);
-};
-
-export const getLanguages = (): ILookupResponse<number>[] => {
-    return [
-        { value: 1, name: SupportedLanguageEnum[SupportedLanguageEnum.English] },
-    ];
 };
 
 export function createUUID() {

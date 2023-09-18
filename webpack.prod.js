@@ -5,26 +5,13 @@ const { merge } = require("webpack-merge");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const { sentryWebpackPlugin } = require("@sentry/webpack-plugin");
-const CreateFileWebpack = require('create-file-webpack')
+const CreateFileWebpack = require("create-file-webpack");
 const path = require("path");
 
 module.exports = env => {
     return merge(common, {
         mode: "production", // mode for build-in optimizations to correnspond for each environment
         plugins: [
-            sentryWebpackPlugin({
-                org: "kvika",
-                project: "straumur-merchant-web",
-                authToken: process.env.SENTRY_AUTH_TOKEN,
-                release: {
-                    name: "1.0." + process.env.BUILD_NUMBER,
-                },
-                sourcemaps: {
-                    assets: "./dist/*",
-                    ignore: ["./node_modules/**"],
-                },
-            }),
             // perform wide range of tasks like bundle optimization, asset management and injection of environment variables.
             new HtmlWebpackPlugin({
                 // generates an HTML and automatically injects all your generated bundles
@@ -33,10 +20,7 @@ module.exports = env => {
             }),
             new CompressionPlugin(),
             new CopyPlugin({
-                patterns: [
-                    { from: "./src/scripts", to: "./scripts" },
-                    { from: "./src/assets/images/emails", to: "./images/emails" },
-                ],
+                patterns: [{ from: "./src/scripts", to: "./scripts" }],
             }),
             new webpack.DefinePlugin({
                 "process.env": {
@@ -48,10 +32,10 @@ module.exports = env => {
                 // path to folder in which the file will be created
                 path: path.resolve(__dirname, "dist"),
                 // file name
-                fileName: 'version',
+                fileName: "version",
                 // content of the file
                 content: "1.0." + process.env.BUILD_NUMBER,
-            })
+            }),
         ],
         module: {
             // determine how the different types of modules within a project will be treated

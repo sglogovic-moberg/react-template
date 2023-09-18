@@ -1,0 +1,74 @@
+@import "style/_variables";
+
+.opacity-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    transition: opacity 1s ease-out;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    overflow: hidden;
+    visibility: visible;
+    z-index: 500;
+
+    &-slider {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .spinner-sector__circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: $color-primary-alpha;
+        }
+        .spinner-sector__line {
+            height: 1px;
+            width: 5px;
+            border: 2px solid $color-primary-alpha;
+
+            &--first {
+                animation: width 2s ease-in-out infinite alternate;
+                animation-delay: 50ms;
+            }
+
+            &--second {
+                animation: width2 2s ease-in-out infinite alternate;
+                animation-delay: 50ms;
+            }
+        }
+    }
+
+    @keyframes width {
+        0% {
+            width: 5px;
+        }
+        33% {
+            width: 5px;
+        }
+        66% {
+            width: 100px;
+        }
+        100% {
+            width: 5px;
+        }
+    }
+
+    @keyframes width2 {
+        0% {
+            width: 5px;
+        }
+        33% {
+            width: 100px;
+        }
+        66% {
+            width: 5px;
+        }
+        100% {
+            width: 5px;
+        }
+    }
+}

@@ -3,7 +3,6 @@ import { CustomAxiosRequestConfig } from "api/requestModels";
 import { Mutex } from "async-mutex";
 import { AxiosError } from "axios";
 import { SupportedLanguageEnum } from "utils/enums";
-import { getFrontendVersion } from "utils/helperFunctions";
 import { getRefreshToken, getToken, setUserLocalStorageData } from "utils/storageActions";
 
 const mutex = new Mutex();
@@ -64,7 +63,6 @@ export const executeAxiosRequest = async (config: CustomAxiosRequestConfig) => {
                 ...config.headers,
                 Authorization: `Bearer ${getToken()}`,
                 Culture: localStorage.getItem("lng") || SupportedLanguageEnum[SupportedLanguageEnum.English],
-                "str-client-version": getFrontendVersion(),
             },
         };
 

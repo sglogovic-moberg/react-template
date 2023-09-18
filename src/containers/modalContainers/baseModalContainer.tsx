@@ -24,6 +24,7 @@ function BaseModalContainer() {
                 .filter(x => x.isOpened)
                 .map((value: ModalBaseProps) => {
                     const Modal = modalMapping[value.modalType];
+                    // @ts-ignore
                     return <Modal key={value.modalType} {...value.props} />;
                 })}
         </>

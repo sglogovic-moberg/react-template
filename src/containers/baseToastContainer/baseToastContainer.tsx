@@ -11,7 +11,7 @@ const BaseToastContainer = () => (
         closeButton={false}
         rtl={false}
         pauseOnFocusLoss={false}
-        className={"straumur-toast"}
+        className={"my-toast"}
     />
 );
 

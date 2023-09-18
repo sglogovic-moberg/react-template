@@ -1,0 +1,114 @@
+@import "style/_variables";
+
+.blur-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    transition: opacity 1s ease-out;
+    opacity: 1;
+    overflow: hidden;
+    visibility: visible;
+    z-index: 2147483647; // Maximum z-index value
+
+    > div {
+        margin: 0 auto;
+    }
+
+    &-component {
+        width: 335px;
+        height: 300px;
+        gap: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 2rem;
+        position: relative;
+        animation: text-color 2s ease-in-out infinite alternate;
+        flex-direction: column;
+
+        &-slider {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .spinner-sector__circle {
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                background-color: $color-primary-alpha;
+            }
+            .spinner-sector__line {
+                height: 1px;
+                width: 5px;
+                border: 2px solid $color-primary-alpha;
+
+                &--first {
+                    animation: width 2s ease-in-out infinite alternate;
+                    animation-delay: 50ms;
+                }
+
+                &--second {
+                    animation: width2 2s ease-in-out infinite alternate;
+                    animation-delay: 50ms;
+                }
+            }
+        }
+    }
+}
+
+@keyframes text-color {
+    0% {
+        color: rgba(0, 0, 0, 1);
+    }
+    50% {
+        color: rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes width {
+    0% {
+        width: 5px;
+    }
+    33% {
+        width: 5px;
+    }
+    66% {
+        width: 100px;
+    }
+    100% {
+        width: 5px;
+    }
+}
+
+@keyframes width2 {
+    0% {
+        width: 5px;
+    }
+    33% {
+        width: 100px;
+    }
+    66% {
+        width: 5px;
+    }
+    100% {
+        width: 5px;
+    }
+}
+
+@supports (backdrop-filter: none) {
+    .loader {
+        backdrop-filter: blur(4px);
+    }
+}
+
+@supports not (backdrop-filter: none) {
+    .loader {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}

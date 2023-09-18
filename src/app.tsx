@@ -1,14 +1,12 @@
 import BaseToastContainer from "containers/baseToastContainer/baseToastContainer";
+import MainLayout from "containers/layout/mainLayout";
 import MainLoader from "containers/mainLoader/mainLoader";
 import BaseModalContainer from "containers/modalContainers/baseModalContainer";
-import "hammerjs";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useEffect, useState } from "react";
 import { authAdminThunk } from "redux/actions/authActions";
 import { useAppDispatch } from "redux/store";
-import MainLayout from "containers/layout/mainLayout";
-import { ErrorBoundary } from "containers/errorBoundary/errorBoundary";
-import { useSearchParams } from "react-router-dom";
 import { removeUserLocalStorageData } from "utils/storageActions";
 
 const App = () => {
@@ -32,16 +30,14 @@ const App = () => {
 
     return (
         <div className="app">
-            <ErrorBoundary>
-                <MainLoader />
-                {isReady && (
-                    <>
-                        <BaseModalContainer />
-                        <BaseToastContainer />
-                        <MainLayout />
-                    </>
-                )}
-            </ErrorBoundary>
+            <MainLoader />
+            {isReady && (
+                <>
+                    <BaseModalContainer />
+                    <BaseToastContainer />
+                    <MainLayout />
+                </>
+            )}
         </div>
     );
 };
