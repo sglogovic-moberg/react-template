@@ -1,7 +1,12 @@
 import { AsyncThunk, ThunkDispatch } from "@reduxjs/toolkit";
 import { nameof } from "ts-simple-nameof";
-import { SupportedLanguageEnum } from "./enums";
 import i18n from "./language/languageClient";
+import { SupportedLanguageEnum } from "utils/enums";
+import { ILookupResponse } from "utils/models";
+
+export const getLanguages = (): ILookupResponse<number>[] => {
+    return [{ value: 1, name: SupportedLanguageEnum[SupportedLanguageEnum.English] }];
+};
 
 export async function executeContainerThunkDispatch<ReturnType, ArgumentType>(
     containerDispatch: ThunkDispatch<any, any, any>,
@@ -23,7 +28,7 @@ export async function executeContainerThunkDispatch<ReturnType, ArgumentType>(
 }
 
 export const devConsoleLog = (param1?: any, param2?: any) => {
-    //process.env.NODE_ENV != "production" && console.log(param1, param2);
+    process.env.NODE_ENV != "production" && console.log(param1, param2);
 };
 
 export const devConsoleError = (param1?: any, param2?: any) => {

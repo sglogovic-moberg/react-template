@@ -1,0 +1,148 @@
+@import "style/variables";
+
+.app-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	height: 72px;
+	width: 100%;
+	background-color: $color-gray-alpha;
+	flex-direction: column;
+	z-index: 1000;
+
+	@media screen and (min-width: $nav-sm) {
+		bottom: 0;
+		height: 100vh;
+		width: 72px;
+		border-right: 1px solid $color-gray-epsilon;
+		transition: width 0.4s ease-in-out;
+
+		&--is-expanded {
+			width: 264px;
+
+			.app-header__logo {
+				width: 40px;
+			}
+
+			.app-header__toggle-width-action > svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__logo {
+		height: auto;
+		width: 32px;
+		transition: width 0.4s ease-in-out;
+	}
+
+	&__wrap {
+		position: relative;
+		display: flex;
+		height: 100%;
+		background-color: $color-gray-alpha;
+		justify-content: center;
+		align-items: center;
+		z-index: 10;
+
+		@media screen and (min-width: $nav-sm) {
+			height: auto;
+			padding: 30px 0;
+		}
+	}
+
+	&__toggle-mobile-nav-action {
+		position: absolute;
+		left: 8px;
+		display: flex;
+		height: 56px;
+		width: 56px;
+		padding: 0;
+		border: 1px solid $color-cosmos-blue-gamma;
+		border-radius: 8px;
+		background-color: transparent;
+		justify-content: center;
+		align-items: center;
+		transition: border-color 0.25s ease-in-out;
+
+		.app-header__menu-icon,
+		.app-header__cancel-icon {
+			position: absolute;
+			transition: opacity 0.25s ease-in-out;
+		}
+
+		.app-header__cancel-icon {
+			opacity: 0;
+		}
+
+		&--is-open {
+			border-color: transparent;
+
+			.app-header__cancel-icon {
+				opacity: 1;
+			}
+
+			.app-header__menu-icon {
+				opacity: 0;
+			}
+		}
+
+		@media screen and (min-width: $nav-sm) {
+			display: none;
+		}
+	}
+
+	&__toggle-width-action {
+		position: absolute;
+		right: -9px;
+		display: none;
+		height: 32px;
+		width: 18px;
+		padding: 0;
+		border: 1px solid $color-gray-epsilon;
+		border-left-width: 0;
+		border-radius: 0 4px 4px 0;
+		background-color: $color-gray-alpha;
+		color: $color-primary-alpha;
+		justify-content: center;
+		align-items: center;
+
+		&:hover {
+			> svg {
+				opacity: 1;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: 9px;
+		}
+
+		&:before {
+			top: -1px;
+			border-top: 1px solid $color-gray-alpha;
+		}
+
+		&:after {
+			bottom: -1px;
+			border-bottom: 1px solid $color-gray-alpha;
+		}
+
+		> svg {
+			height: 12px;
+			width: auto;
+			opacity: 0.6;
+			transition:
+				opacity 0.25s ease-in-out,
+				transform 0.3s ease-in-out;
+		}
+
+		@media screen and (min-width: $nav-sm) {
+			display: flex;
+		}
+	}
+}

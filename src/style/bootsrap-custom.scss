@@ -1,78 +1,8 @@
-@import "_variables";
+@import "style/variables";
+@import "style/mixins";
 
-.dropdown-toggle {
-    &::after {
-        color: $color-black;
-    }
-}
-
-.nav-tabs {
-    .nav-item {
-        .nav-link {
-            color: $color-primary-gamma;
-        }
-    }
-}
-
-.form-check.form-switch {
-    .form-check-input:checked {
-        background-color: $color-primary-gamma;
-        border-color: $color-primary-gamma;
-    }
-    .form-check-input:focus {
-        border-color: rgb(36 36 36 / 25%);
-        box-shadow: 0 0 0 0.25rem rgb(36 36 36 / 25%);
-        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill=%27rgba%280, 0, 0, 0.25%29%27/%3e%3c/svg%3e");
-
-        &.form-check-input:checked {
-            background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill=%27%23fff%27/%3e%3c/svg%3e");
-        }
-    }
-}
-
-.btn {
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-.base-table table {
-    table-layout: auto !important;
-}
-
-.page-link:focus {
-    box-shadow: 0 0 0 0.25rem rgba(184, 158, 116, 0.55);
-}
-
-.modal-backdrop {
-    background-color: #002649;
-
-    &.show {
-        opacity: 0.6;
-    }
-}
-
-.modal-dialog {
-    margin: 1.75rem auto;
-}
-
-.modal-sm {
-    width: auto;
-}
-
-@media (min-width: $modal-sm) {
-    .modal-sm {
-        max-width: $modal-sm;
-    }
-}
-
-.table-responsive {
-    overflow: overlay;
-
-    &::-webkit-scrollbar-track {
-        margin-top: 60px;
-    }
-}
-
-.popover {
-    max-width: fit-content;
+.container {
+    @media screen and (max-width: $lg + 1) {
+    	max-width: 100%;
+	}
 }

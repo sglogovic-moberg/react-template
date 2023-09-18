@@ -10,4 +10,15 @@ export const StringResources = {
         details: "modal.details",
         submit: "modal.submit",
     },
+    login: {
+        title: "login.title",
+        formTitle: "login.formTitle",
+        formUsernameInputLabel: "login.formUsernameInputLabel",
+        formPasswordInputLabel: "login.formPasswordInputLabel",
+        formButtonCaption: "login.formButtonCaption",
+    },
+    mainNavigation: {
+        logout: "mainNavigation.logout",
+        title: "mainNavigation.title",
+    },
 };

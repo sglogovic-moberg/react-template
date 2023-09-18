@@ -38,3 +38,25 @@ body,
     height: 100vh;
     background-color: $color-secondary-gamma;
 }
+
+// disable show password eye icon on Edge browsers
+::-ms-reveal {
+    display: none;
+}
+
+// remove arrows/spinners from input type number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.modal-backdrop {
+    z-index: 1055;
+}

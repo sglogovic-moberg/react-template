@@ -1,6 +1,6 @@
+import AppLoader from "containers/appLoader/appLoader";
 import BaseToastContainer from "containers/baseToastContainer/baseToastContainer";
 import MainLayout from "containers/layout/mainLayout";
-import MainLoader from "containers/mainLoader/mainLoader";
 import BaseModalContainer from "containers/modalContainers/baseModalContainer";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -13,24 +13,17 @@ const App = () => {
     const [isReady, setIsReady] = useState(false);
     const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
-    const impersonateLoginRequestToken = searchParams.get("token");
 
     // See if user can reconnect (from local storage token).
     useEffect(() => {
-        // if its a impersonate login request, remove user data from local storage.
-        if (impersonateLoginRequestToken) {
-            removeUserLocalStorageData();
+        dispatch(authAdminThunk()).then(() => {
             setIsReady(true);
-        } else {
-            dispatch(authAdminThunk()).then(() => {
-                setIsReady(true);
-            });
-        }
+        });
     }, []);
 
     return (
         <div className="app">
-            <MainLoader />
+            <AppLoader />
             {isReady && (
                 <>
                     <BaseModalContainer />

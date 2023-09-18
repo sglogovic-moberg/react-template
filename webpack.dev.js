@@ -20,10 +20,8 @@ module.exports = env => {
             new webpack.HotModuleReplacementPlugin(), // DEV ONLY!!! HMR exchanges, adds, or removes modules while an application is running, without a full reload
             new ReactRefreshWebpackPlugin(), // DEV ONLY!!! "Fast Refresh" for React components.
             new CopyPlugin({
-                patterns: [
-                    { from: "./src/scripts", to: "./scripts" },
-                ],
-            })
+                patterns: [{ from: "./src/scripts", to: "./scripts" }],
+            }),
         ],
         devServer: {
             hot: true, // HMR

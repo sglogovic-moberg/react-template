@@ -2,28 +2,25 @@
 @import "style/mixins";
 
 .app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+	min-height: 100vh;
+	display: flex;
 }
 
 .app-content {
-    height: calc(100% - 79px);
-    margin-top: rem(64);
-    padding: rem(16);
-    flex-grow: 1;
-    overflow: overlay;
-    scrollbar-gutter: stable;
+	height: calc(100% - 72px);
+	margin-top: 72px;
+	flex-grow: 1;
 
-    @media screen and (min-width: $nav-sm) {
-        width: calc(100% - 72px);
-        margin-top: rem(80);
-        margin-left: auto;
-        flex-grow: 0;
-        transition: width 0.4s ease-in-out;
+	@media screen and (min-width: $nav-sm) {
+		height: 100%;
+		width: calc(100% - 72px);
+		margin-top: 0;
+		margin-left: auto;
+		flex-grow: 0;
+		transition: width 0.4s ease-in-out;
 
-        &--with-navigation-expanded {
-            width: calc(100% - 264px);
-        }
-    }
+		&--with-header-expanded {
+			width: calc(100% - 264px);
+		}
+	}
 }

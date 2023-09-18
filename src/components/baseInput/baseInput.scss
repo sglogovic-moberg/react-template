@@ -1,0 +1,57 @@
+@import "style/variables";
+@import "style/mixins";
+
+.base-input {
+	&__label {
+		margin-bottom: rem(10);
+		font-size: rem(14);
+		font-weight: 600;
+		line-height: calc(18 / 14);
+		text-transform: uppercase;
+		color: #1e2022;
+	}
+
+	&__input {
+		width: 100%;
+		padding: rem(15);
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: calc(16 / 14);
+		outline: none;
+	}
+
+	&__error {
+		padding-top: rem(6);
+		font-size: rem(12);
+		line-height: calc(14 / 12);
+		color: $color-red-alpha;
+	}
+
+	&--alpha {
+		.base-input__input {
+			border: 1px solid $color-white;
+			border-radius: rem(6);
+			background-color: transparent;
+			color: $color-white;
+
+			&::placeholder {
+				color: $color-white;
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&--beta {
+		.base-input__input {
+			border: 1px solid $color-gray-epsilon;
+			border-radius: rem(6);
+			background-color: transparent;
+			color: $color-gray-alpha;
+
+			&::placeholder {
+				color: $color-gray-alpha;
+				opacity: 0.5;
+			}
+		}
+	}
+}

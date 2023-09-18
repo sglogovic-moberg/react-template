@@ -2,9 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { executeAxiosRequest, executeAxiosRequestWithRefresh } from "redux/services";
 import { reduxAction } from "utils/constants";
 import { getRefreshToken, removeUserLocalStorageData, setUserLocalStorageData } from "utils/storageActions";
-import {
-    ILoginParams,
-} from "redux/models/authModels";
+import { ILoginParams } from "redux/models/authModels";
 
 export const authAdminThunk = createAsyncThunk("auth/authAdmin", async data => {
     return await executeAxiosRequestWithRefresh({
@@ -16,15 +14,12 @@ export const authAdminThunk = createAsyncThunk("auth/authAdmin", async data => {
 
 export const adminLoginThunk = createAsyncThunk("auth/adminLogin", async (params: ILoginParams, thunkAPI) => {
     try {
-        const isImpsersonateAdminLogin = !!params.token;
         const response = await executeAxiosRequestWithRefresh({
-            url: `/api/account/${isImpsersonateAdminLogin ? "login-impersonate-user" : "login"}`,
+            url: `/api/account/login`,
             method: "POST",
             data: params,
         });
 
-        //Later on we will use language which was stored in DB for logged in user. Not yet implemented
-        //handleChangeLanguage(response.data.language);
         setUserLocalStorageData(response.data);
 
         return response;
