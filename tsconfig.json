@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "target": "ES5",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "lib": ["DOM", "ESNext"],
+        "jsx": "react-jsx",
+        "noEmit": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "composite": true
+    },
+    "include": ["src", "src/**/*", "index.d.ts"],
+
+}

@@ -1,0 +1,64 @@
+@use "sass:math";
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: "AkzidenzGroteskPro", sans-serif;
+    font-size: percentage(math.div($em-base, 16));
+    scrollbar-color: $color-gray-zeta transparent;
+    background-color: $color-gray-gamma;
+}
+
+/* Define scrollbar dimensions */
+* {
+    scrollbar-width: thin; /* set the width of the scrollbar */
+    scrollbar-color: #ccc transparent; /* set the color of the scrollbar */
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 6px;
+    background-color: $color-gray-zeta;
+}
+
+.app-body-lazy {
+    height: 100vh;
+    background-color: $color-secondary-gamma;
+}
+
+// disable show password eye icon on Edge browsers
+::-ms-reveal {
+    display: none;
+}
+
+// remove arrows/spinners from input type number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.modal-backdrop {
+    z-index: 1055;
+}
