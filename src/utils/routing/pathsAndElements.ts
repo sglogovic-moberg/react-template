@@ -29,4 +29,10 @@ export const PortalRouteElements: IPortalRouteElement[] = [
         element: React.lazy(() => import("pages/portal/portal")),
         icon: DashboardIcon,
     },
+    {
+        path: "/posts",
+        label: "Posts",
+        element: React.lazy(() => import("pages/posts/posts")),
+        icon: DashboardIcon,
+    },
 ];

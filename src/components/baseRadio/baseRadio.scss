@@ -1,0 +1,57 @@
+@import "style/variables";
+
+.base-radio {
+    display: flex;
+    padding: 8px;
+    gap: 8px;
+    width: fit-content;
+    cursor: pointer;
+
+    & * {
+        cursor: pointer;
+    }
+
+    &.base-radio--checked {
+        background: $color-blue-gamma;
+        border-radius: 0.5rem;
+    }
+
+    .base-radio--input {
+        border: 1px solid $color-cosmos-blue-delta;
+        background: $color-secondary-gamma;
+        margin-top: 0px;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .base-radio--input:checked {
+        background: $color-primary-delta;
+        border: 1px solid $color-primary-delta;
+    }
+
+    .base-radio--input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .base-radio--input:active {
+        filter: none;
+    }
+
+    .base-radio--input::before {
+        content: "";
+        display: block;
+        width: 40%;
+        height: 40%;
+        margin: 30% auto;
+        border-radius: 50%;
+    }
+
+    .base-radio--input:checked:before {
+        background: $color-blue-alpha;
+    }
+
+    .base-radio--label {
+        margin-left: 0.5rem;
+    }
+}

@@ -4,8 +4,16 @@ import { RootState } from "redux/store";
 import { ModalTypeEnum } from "utils/enums";
 import "./baseModalContainer.scss";
 import BaseModal from "components/baseModal/baseModal";
+import ReportDetailsModal from "containers/modalContainers/reportDetailsModal/reportDetailsModal";
+import ExportModal from "containers/modalContainers/exportModal/exportModal";
+import SpecialMenuColumnModal from "containers/modalContainers/specialMenuModal/specialMenuColumnModal/specialMenuColumnModal";
+import SpecialMenuFilterModal from "containers/modalContainers/specialMenuModal/specialMenuFilterModal/specialMenuFilterModal";
 
 const modalMapping: { [modalType in ModalTypeEnum]: Function } = {
+    [ModalTypeEnum.Export]: ExportModal,
+    [ModalTypeEnum.SpecialMenuColumn]: SpecialMenuColumnModal,
+    [ModalTypeEnum.SpecialMenuFilter]: SpecialMenuFilterModal,
+    [ModalTypeEnum.Details]: ReportDetailsModal,
     [ModalTypeEnum.Confirm]: BaseModal,
     [ModalTypeEnum.None]: () => {
         <></>;

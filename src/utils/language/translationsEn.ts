@@ -8,4 +8,9 @@ export const translationsEn = {
     [StringResources.modal.set]: "Set",
     [StringResources.modal.details]: "Details",
     [StringResources.modal.submit]: "Submit",
+
+    [StringResources.table.fallbackMessage]: "No data found{{fallbackMessageAddon}}.",
+    [StringResources.table.fallbackMessageWithFilter]: " - try adjusting your filter settings",
+    [StringResources.table.itemsPerPage]: "Items per page",
+    [StringResources.table.emptyTableMessage]: "No items to display.",
 };

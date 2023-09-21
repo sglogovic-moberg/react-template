@@ -1,0 +1,72 @@
+@import "style/variables";
+@import "style/mixins";
+
+.custom-pagination__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.custom-pagination.pagination {
+    margin: 0 0 0 auto;
+    justify-content: flex-end;
+
+    .page-item {
+        height: rem(24);
+        margin: 0 rem(2);
+        border-radius: rem(4);
+        overflow: hidden;
+        transition: background-color 0.25s ease;
+        user-select: none;
+
+        &:not(.disabled):not(.active):hover {
+            cursor: pointer;
+            background-color: $color-secondary-gamma;
+        }
+
+        &.active {
+            background-color: $color-primary-alpha;
+
+            .page-link {
+                font-weight: 700;
+                color: $color-white;
+            }
+        }
+
+        img {
+            height: auto;
+            width: rem(14);
+        }
+
+        &:not(:first-child):not(:last-child) {
+            img {
+                height: auto;
+                width: rem(8.5);
+            }
+        }
+    }
+
+    .page-link {
+        display: block;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: rem(8);
+        padding-right: rem(8);
+        border: none;
+        font-size: rem(16);
+        line-height: rem(24);
+        text-align: center;
+        background-color: inherit;
+        color: $color-cosmos-blue-epsilon;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .page-item.disabled .page-link {
+        background-color: inherit;
+        border-color: none;
+        color: $color-cosmos-blue-epsilon;
+    }
+}

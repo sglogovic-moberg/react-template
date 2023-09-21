@@ -1,0 +1,12 @@
+.base-modal-details {
+    &__modal-body {
+        overflow: scroll;
+        height: 65vh;
+        padding: .5rem 1px !important;
+    }
+
+    .modal-content {
+        width: 100vw;
+    }
+
+}

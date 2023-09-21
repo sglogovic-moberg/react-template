@@ -1,0 +1,184 @@
+@import "style/variables";
+@import "style/mixins";
+
+// Button which transofmrs to menu popup on click.
+.special-menus {
+    position: absolute;
+    right: 0px; // Make sure popup opens on left side of screen.
+    width: 100%;
+    max-height: 40px;
+    z-index: 100;
+    line-height: 16px;
+
+    box-shadow: 0px 4px 18px -4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: $color-white;
+
+    transition: width 600ms ease-in-out, max-height 600ms ease-in-out;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Button transforms to popup menu.
+    &.menu-open {
+        width: 450px;
+        max-height: 90vh;
+        overflow-y: overlay;
+
+        border: none;
+
+        &.is-datepicker-active {
+            overflow-y: visible;
+
+            .special-menus__menu {
+                overflow: visible;
+            }
+        }
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    // Button with icon and text, additionaly with X icon when menu is open.
+    &__button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        font-weight: bold;
+        align-items: center;
+        cursor: pointer;
+        white-space: nowrap;
+
+        position: sticky;
+        top: 0px;
+        background-color: $color-white;
+        border-radius: 8px;
+        z-index: 102;
+
+        transition: border 0ms ease-out 600ms;
+
+        // If filter is active add border.
+        &.menu-active {
+            border: solid 2px black;
+        }
+
+        &--left {
+            display: flex;
+            padding: rem(16) rem(24) rem(16) rem(16);
+            gap: rem(16);
+            align-items: center;
+        }
+
+        // Transition for X icon.
+        &--close {
+            cursor: pointer;
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+            max-width: 0;
+            transition: all 500ms ease-out;
+            padding-right: 16px;
+        }
+
+        &.menu-open {
+            .special-menus__button--close {
+                visibility: visible;
+                opacity: 1;
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__button-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__warning-icon {
+        margin-left: rem(8);
+        height: rem(16);
+        width: rem(16);
+
+        path {
+            fill: $color-yellow-beta;
+        }
+    }
+
+    // Takes up space when menu is closed, since button is absolute.
+    &__placeholder {
+        visibility: hidden;
+        line-height: 16px;
+    }
+
+    // For content transition.
+    &__menu {
+        visibility: hidden;
+        opacity: 0;
+        padding: 16px;
+        pointer-events: none;
+        max-height: 75vh;
+        overflow-y: overlay;
+        overflow-x: hidden;
+
+        &.menu-open {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            pointer-events: all;
+        }
+    }
+
+    // No animations for footer.
+    &__footer {
+        position: sticky;
+        bottom: 0px;
+        background-color: $color-white;
+        z-index: 101;
+        pointer-events: none;
+
+        &,
+        button {
+            visibility: hidden;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        button {
+            transition: opacity 0s ease-out;
+        }
+
+        &.menu-open {
+            pointer-events: all;
+            &,
+            button {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            button {
+                transition: opacity 1500ms ease-out, background-color 0.25s ease;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 430px) {
+        position: absolute;
+        left: 0px; // Make sure popup opens on right side of screen.
+
+        &.menu-open {
+            z-index: 10000;
+            width: 90vw;
+
+            max-height: 70vh;
+
+            -webkit-box-shadow: 0px 0px 300px 300px rgba(0, 0, 0, 0.54);
+            -moz-box-shadow: 0px 0px 300px 300px rgba(0, 0, 0, 0.54);
+            box-shadow: 0px 0px 300px 300px rgba(0, 0, 0, 0.54);
+        }
+    }
+}

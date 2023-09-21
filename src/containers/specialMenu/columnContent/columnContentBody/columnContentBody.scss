@@ -1,0 +1,15 @@
+.column-content__columns {
+    &__unsaved-changes {
+        margin-bottom: 12px;
+    }
+
+    &__select-all {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    // don't display hover efect when dragging elements
+    &--dragging {
+        pointer-events: none;
+    }
+}

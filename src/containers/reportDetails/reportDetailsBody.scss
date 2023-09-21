@@ -1,0 +1,70 @@
+@import "style/variables";
+@import "style/mixins";
+
+.report-details__body {
+    &-row {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 8px;
+        border-bottom: 1px solid $color-gray-epsilon;
+
+        &--title {
+            font-size: 13px;
+            line-height: 16px;
+            color: $color-cosmos-blue-epsilon;
+            font-weight: 500;
+        }
+
+        &--data {
+            font-size: 16px;
+            line-height: 24px;
+            color: $color-secondary-delta;
+
+            &--value-name-list {
+                white-space: pre-wrap;
+            }
+
+            &.highlight-light-blue {
+                background-color: $color-blue-epsilon;
+                width: fit-content;
+                padding: rem(4) rem(8) rem(4) rem(8);
+                border-radius: rem(4);
+                font-size: 14px;
+                line-height: 16px;
+                font-weight: 500;
+                letter-spacing: 3%;
+                color: $color-blue-alpha;
+            }
+        }
+
+        &--list-data {
+            @extend .report-details__body-row--data;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        &--drill {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    &-id {
+        font-size: 13px;
+        line-height: 13px;
+        color: $color-cosmos-blue-zeta;
+        padding: 12px 0px 4px;
+    }
+
+    &-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        border-bottom: 1px solid $color-gray-epsilon;
+
+        .report-details__body-row {
+            border-bottom: none;
+        }
+    }
+}

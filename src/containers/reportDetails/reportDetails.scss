@@ -1,0 +1,38 @@
+@import "style/variables";
+
+.report-details {
+    height: 100%;
+
+    &__title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $color-primary-alpha;
+        font-weight: bold;
+        border-bottom: 1px solid $color-cosmos-blue-delta;
+
+        &--action {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            padding: 20px 16px 15px 16px;
+
+            svg {
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+        &--label {
+            padding: 20px 16px 15px 16px;
+        }
+    }
+
+    &__body {
+        overflow: overlay;
+        overflow-x: hidden;
+        padding: 0px 16px 24px;
+        height: calc(100% - 65px);
+    }
+}

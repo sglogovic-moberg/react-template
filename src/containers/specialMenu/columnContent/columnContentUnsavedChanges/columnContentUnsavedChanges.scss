@@ -1,0 +1,26 @@
+@import "style/variables";
+
+.column-content-unsaved-changes {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    height: 32px;
+    background: $color-yellow-alpha;
+    border-radius: 4px;
+    width: 100%;
+    white-space: nowrap;
+
+    &__text {
+        color: $color-yellow-gamma;
+    }
+}
+
+.column-chooser__warning-icon {
+    width: 16px;
+    height: 16px;
+
+    path {
+        fill: $color-yellow-beta;
+    }
+}

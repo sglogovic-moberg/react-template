@@ -7,6 +7,7 @@ import authReducer from "redux/reducers/authReducer";
 import modalReducer from "redux/reducers/modalReducer";
 import { loaderMiddleware, authMiddleware } from "redux/storeActionMiddleware";
 import { reduxAction } from "utils/constants";
+import reportReducer from "./reducers/reportReducer";
 
 const rootReducer = (state: ReturnType<typeof appReducer> | undefined, action: AnyAction) => {
     if (action.type === reduxAction.resetStore) {
@@ -18,6 +19,7 @@ const rootReducer = (state: ReturnType<typeof appReducer> | undefined, action: A
 const appReducer = combineReducers({
     auth: authReducer,
     modal: modalReducer,
+    report: reportReducer,
     [baseApi.reducerPath]: baseApi.reducer,
 });
 

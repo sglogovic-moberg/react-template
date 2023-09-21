@@ -7,11 +7,9 @@ import { useSearchParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { authAdminThunk } from "redux/actions/authActions";
 import { useAppDispatch } from "redux/store";
-import { removeUserLocalStorageData } from "utils/storageActions";
 
 const App = () => {
     const [isReady, setIsReady] = useState(false);
-    const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
 
     // See if user can reconnect (from local storage token).

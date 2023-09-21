@@ -1,0 +1,15 @@
+@import "style/variables";
+
+.filter-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+
+    &--filter-icon {
+        width: 16px;
+        path {
+            fill: $color-red-alpha;
+        }
+    }
+}

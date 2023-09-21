@@ -1,0 +1,63 @@
+@import "style/_variables";
+@import "style/_mixins";
+
+.information-drawer {
+    position: fixed;
+    width: 500px;
+    height: 100%;
+    top: 0px;
+    right: 0;
+    background-color: $color-gray-alpha;
+    border-left: 1px solid $color-gray-epsilon;
+    box-shadow: rem(-6) 0 rem(16) rem(-4) rgba(0, 0, 0, 0.05);
+    z-index: 100;
+
+    &__close-action {
+        position: absolute;
+        top: rem(16);
+        left: rem(-10);
+        display: flex;
+        height: rem(32);
+        width: rem(22);
+        padding: 0;
+        border: none;
+        background-color: $color-gray-alpha;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            display: block;
+            height: rem(32);
+            width: rem(10);
+            border-radius: rem(4) 0 0 rem(4);
+            border-bottom: 1px solid $color-gray-epsilon;
+            border-left: 1px solid $color-gray-epsilon;
+            border-top: 1px solid $color-gray-epsilon;
+        }
+    }
+
+    &__icon {
+        height: auto;
+        width: rem(8);
+        opacity: 0.6;
+        color: $color-primary-alpha;
+        transition: all 0.5s ease-in-out;
+
+        &--entering {
+            transform: rotate(180deg);
+        }
+        &--entered {
+            transform: rotate(0deg);
+        }
+        &--exiting {
+            transform: rotate(0deg);
+        }
+        &--exited {
+            transform: rotate(180deg);
+        }
+    }
+}

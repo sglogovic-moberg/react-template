@@ -1,0 +1,80 @@
+@import "style/variables";
+@import "style/mixins";
+
+.base-datepicker {
+	position: relative;
+	width: 100%;
+
+	&__label {
+		margin-bottom: rem(10);
+		font-size: rem(16);
+		font-weight: 700;
+		line-height: calc(21 / 16);
+	}
+
+	&__input {
+		width: 100%;
+		padding: rem(15) rem(30) rem(15) rem(15) !important;
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: calc(16 / 14);
+		outline: none;
+	}
+
+	&__error {
+		padding-top: rem(6);
+		font-size: rem(12);
+		line-height: calc(14 / 12);
+		color: $color-red-alpha;
+	}
+
+	.react-datepicker__input-container .react-datepicker__calendar-icon {
+		position: absolute;
+		top: rem(14);
+		right: rem(12);
+		padding: 0;
+		height: rem(18);
+		width: rem(18);
+	}
+
+	&--alpha {
+		.base-datepicker__input {
+			border: 1px solid $color-white;
+			border-radius: rem(6);
+			background-color: transparent;
+			color: $color-white;
+
+			&::placeholder {
+				color: $color-white;
+				opacity: 0.5;
+			}
+		}
+
+		.react-datepicker__calendar-icon path {
+			fill: $color-white;
+		}
+	}
+
+	&--beta {
+		.base-datepicker__input {
+			border: 1px solid $color-gray-epsilon;
+			border-radius: rem(6);
+			background-color: transparent;
+			color: $color-gray-alpha;
+
+			&::placeholder {
+				color: $color-gray-alpha;
+				opacity: 0.5;
+			}
+		}
+
+		.react-datepicker__calendar-icon path {
+			fill: $color-gray-alpha;
+		}
+	}
+
+	.react-datepicker__year-dropdown {
+		max-height: rem(250);
+		overflow: overlay;
+	}
+}
