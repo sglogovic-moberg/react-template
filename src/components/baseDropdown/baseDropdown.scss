@@ -68,7 +68,7 @@
 			border: 1px solid $color-white;
 			border-radius: rem(6);
 			background-color: transparent;
-			color: $color-white;
+			color: $color-black;
 
 			&[aria-expanded="true"]:after {
 				transform: rotate(180deg);

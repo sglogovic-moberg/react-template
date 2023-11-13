@@ -12,8 +12,6 @@ import { mobileScreenResolution } from "utils/constants";
 import { useMediaQuery, useModalManagement } from "utils/customHooks";
 import { ModalTypeEnum } from "utils/enums";
 import { setColumnVisibilityThunk } from "redux/actions/reportAction";
-import ErrorWarningIcon from "components/icons/errorWarningIcon";
-import ColumnsSmallIcon from "components/icons/columnsSmallIcon";
 
 const ColumnContentSpecialMenu = () => {
     const dispatch = useAppDispatch();
@@ -89,12 +87,7 @@ const ColumnContentSpecialMenu = () => {
             : setIsSpecialMenuOpen(isVisible);
     };
 
-    const columnContentText = (
-        <>
-            {`${t(StringResources.columnChooser.column)}`}
-            {isWarningVisible && !isSpecialMenuOpen && <ErrorWarningIcon className={"special-menus__warning-icon"} />}
-        </>
-    );
+    const columnContentText = <>{`${t(StringResources.columnChooser.column)}`}</>;
 
     // reorder columns
     const onDragEnd = (result: DropResult) => {
@@ -110,7 +103,6 @@ const ColumnContentSpecialMenu = () => {
     return (
         <SpecialMenu
             text={columnContentText}
-            icon={<ColumnsSmallIcon />}
             isMenuOpen={isSpecialMenuOpen}
             setSpecialMenuVisibilty={setSpecialMenuVisibilty}
             bodyNode={

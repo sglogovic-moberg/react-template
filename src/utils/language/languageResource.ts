@@ -48,7 +48,16 @@ export const StringResources = {
             id: "pages.posts.id",
             titleColumn: "pages.posts.titleColumn",
             body: "pages.posts.body",
-            userId: "pages.posts.userId",
+            userName: "pages.posts.userName",
+            createdTime: "pages.posts.createdTime",
+            search: "pages.posts.search",
+        },
+        [PageTypeEnum.Users]: {
+            title: "pages.users.title",
+            id: "pages.users.id",
+            name: "pages.users.name",
+            email: "pages.users.email",
+            createdTime: "pages.users.createdTime",
         },
     },
     filter: {

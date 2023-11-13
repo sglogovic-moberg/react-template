@@ -29,7 +29,6 @@ import { ModalTypeEnum } from "utils/enums";
 import { mobileScreenResolution } from "utils/constants";
 import { IReportRowDefinitions } from "api/reportModels";
 import SortIcon from "components/icons/sortIcon";
-import DownloadIcon from "components/icons/downloadIcon";
 
 interface IBaseTableProps {
     isExportShown?: boolean;
@@ -362,7 +361,6 @@ const BaseTable = forwardRef<any, IBaseTableProps>(function BaseTable(
                         size="small"
                         styleType="text"
                         text={isMobile ? undefined : t(StringResources.table.export)}
-                        rightIcon={<DownloadIcon className="export-action__icon" />}
                         handleClick={onExportBtnClick}
                     />
                 ) : (

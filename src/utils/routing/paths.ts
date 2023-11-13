@@ -5,5 +5,6 @@ export const PATHS = {
     Portal: {
         Index: "/",
         Posts: "/posts",
+        Users: "/users",
     },
 };

@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    .base-dropdown {
+        width: auto;
+    }
 }
 .custom-pagination.pagination {
     margin: 0 0 0 auto;

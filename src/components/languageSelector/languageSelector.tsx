@@ -4,6 +4,7 @@ import { getLanguages, handleChangeLanguage } from "utils/helperFunctions";
 import BaseDropdown from "components/baseDropdown/baseDropdown";
 import { Dropdown } from "react-bootstrap";
 import { ILookupResponse } from "utils/models";
+import AngleIcon from "components/icons/angleIcon";
 
 const languages = getLanguages();
 
@@ -19,14 +20,16 @@ export const GlobalLangaugeSelector: FC<GlobalLangaugeSelectorProps> = ({ classN
     };
 
     return (
-        <BaseDropdown toggleText={i18n.language} onSelect={updateLanguage}>
-            {languages.map((x: ILookupResponse<number>) => {
-                return (
-                    <Dropdown.Item key={x.value} eventKey={x.value}>
-                        {x.name}
-                    </Dropdown.Item>
-                );
-            })}
-        </BaseDropdown>
+        <div style={{ padding: 10 }}>
+            <BaseDropdown toggleText={i18n.language} onSelect={updateLanguage}>
+                {languages.map((x: ILookupResponse<number>) => {
+                    return (
+                        <Dropdown.Item key={x.name} eventKey={x.name}>
+                            {x.name}
+                        </Dropdown.Item>
+                    );
+                })}
+            </BaseDropdown>
+        </div>
     );
 };

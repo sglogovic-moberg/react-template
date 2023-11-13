@@ -70,11 +70,11 @@
 	&__list-wrap {
 		position: relative;
 		display: flex;
-		height: calc(100vh - 184px);
+		height: calc(100vh - 80px);
 		flex-direction: column;
 
 		@media screen and (min-width: $nav-sm) {
-			height: calc(100vh - 140px);
+			height: calc(100vh - 80px);
 			padding-bottom: rem(15);
 		}
 	}
@@ -164,7 +164,7 @@
 
 		&.active {
 			font-weight: 500;
-			background-color: $color-neon-green-beta;
+			background-color: $color-blue-beta;
 			color: $color-primary-alpha;
 
 			> svg {

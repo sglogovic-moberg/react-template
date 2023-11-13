@@ -18,6 +18,7 @@
 		font-weight: 400;
 		line-height: calc(16 / 14);
 		outline: none;
+		border: 1px solid $color-gray-epsilon;
 	}
 
 	&__error {
@@ -29,21 +30,22 @@
 
 	&--alpha {
 		.base-input__input {
-			border: 1px solid $color-white;
 			border-radius: rem(6);
 			background-color: transparent;
-			color: $color-white;
 
 			&::placeholder {
 				color: $color-white;
 				opacity: 0.5;
+			}
+
+			&:focus {
+				border-color: $color-black;
 			}
 		}
 	}
 
 	&--beta {
 		.base-input__input {
-			border: 1px solid $color-gray-epsilon;
 			border-radius: rem(6);
 			background-color: transparent;
 			color: $color-gray-alpha;

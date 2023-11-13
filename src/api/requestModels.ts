@@ -59,7 +59,9 @@ export class CriteriaString {
     };
 }
 
-export interface IBaseTableResponseModel {}
+export interface IBaseTableResponseModel {
+    totalCount: number;
+}
 
 export interface IQueryParams {
     pageSize: number;

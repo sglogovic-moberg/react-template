@@ -7,8 +7,8 @@ export const postsExportRoute = `${basePostsRoute}/report`;
 
 const postsApi = baseApi.injectEndpoints({
     endpoints: builder => ({
-        getPosts: builder.query<IPostsModel[], IQueryParams>({
-            query: standardQueryTableRequest<IPostsModel[]>(basePostsRoute),
+        getPosts: builder.query<IPostsModel, IQueryParams>({
+            query: standardQueryTableRequest<IPostsModel>(basePostsRoute),
         }),
     }),
     overrideExisting: false,

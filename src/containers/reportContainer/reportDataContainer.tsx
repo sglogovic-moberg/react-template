@@ -98,8 +98,8 @@ const ReportDataFetchContainer = ({
         <ReportContainer
             columnDefinitions={columnDefinitions}
             rowDefinitions={rowDefinitions}
-            data={data}
-            totalCount={data?.length}
+            data={data?.data}
+            totalCount={data?.totalCount ?? 0}
             exportRoute={exportRoute}
             actions={actions}
         />

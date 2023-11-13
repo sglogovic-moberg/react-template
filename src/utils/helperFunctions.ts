@@ -5,7 +5,10 @@ import { ExportType, SupportedLanguageEnum } from "utils/enums";
 import { ExportMetadata, ILookupResponse } from "utils/models";
 
 export const getLanguages = (): ILookupResponse<number>[] => {
-    return [{ value: 1, name: SupportedLanguageEnum[SupportedLanguageEnum.English] }];
+    return [
+        { value: 1, name: SupportedLanguageEnum[SupportedLanguageEnum.English] },
+        { value: 2, name: SupportedLanguageEnum[SupportedLanguageEnum.Hrvatski] },
+    ];
 };
 
 export async function executeContainerThunkDispatch<ReturnType, ArgumentType>(

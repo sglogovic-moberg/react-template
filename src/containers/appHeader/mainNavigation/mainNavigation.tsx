@@ -9,7 +9,6 @@ import { StringResources } from "utils/language/languageResource";
 import { PortalRouteElements } from "utils/routing/pathsAndElements";
 import { setRedirectToLastRoute } from "utils/storageActions";
 import "./mainNavigation.scss";
-import LogoutIcon from "components/icons/logoutIcon";
 
 interface IMainNavigationProps {
     isOpen: boolean;
@@ -79,7 +78,6 @@ const MainNavigation = ({ isOpen, isExpanded, closeNavigation }: IMainNavigation
                                     }
                                 >
                                     <NavLink to={navItem.path} className="main-nav__action">
-                                        {<navItem.icon />}
                                         <span className="main-nav__action-text">{`${t(navItem.label)}`}</span>
                                     </NavLink>
                                 </OverlayTrigger>
@@ -94,7 +92,6 @@ const MainNavigation = ({ isOpen, isExpanded, closeNavigation }: IMainNavigation
                 >
                     <li className="main-nav__list-item main-nav__list-item--with-extra-spacing">
                         <button className="main-nav__logout-action" onClick={logOut}>
-                            <LogoutIcon />
                             <span className="main-nav__action-text">{`${t(
                                 StringResources.mainNavigation.logout
                             )}`}</span>

@@ -1,5 +1,6 @@
 export enum SupportedLanguageEnum {
     English = 1,
+    Hrvatski = 2,
 }
 
 export enum LoginStateEnum {
@@ -28,6 +29,7 @@ export enum PageTypeEnum {
     None = "none",
     Dashboard = "dashboard",
     Posts = "posts",
+    Users = "users",
 }
 
 export enum FilterTypeEnum {

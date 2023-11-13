@@ -10,6 +10,7 @@ import { ILoginParams } from "redux/models/authModels";
 import { useAppDispatch } from "redux/store";
 import { StringResources } from "utils/language/languageResource";
 import * as Yup from "yup";
+import "./login.scss";
 
 interface ILoginForm {
     username: string;
@@ -67,8 +68,6 @@ const Login = () => {
                         <h1 className="app-login__title">{`${t(StringResources.login.title)}`}</h1>
 
                         <Form onSubmit={handleSubmit} noValidate>
-                            <h3 className="app-login__form-title">{`${t(StringResources.login.formTitle)}`}</h3>
-
                             <Form.Group className="app-login__form-row">
                                 <BaseInput
                                     type={"text"}
@@ -106,6 +105,8 @@ const Login = () => {
                         </Form>
                     </div>
                 </div>
+
+                <div></div>
             </div>
         </main>
     );

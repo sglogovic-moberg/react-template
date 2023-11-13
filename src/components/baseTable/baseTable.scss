@@ -161,7 +161,8 @@
             }
 
             &:hover {
-                background-color: $color-neon-green-gamma;
+                background-color: $color-blue-beta;
+                opacity: 0.6;
             }
 
             &:focus-visible {
@@ -177,7 +178,7 @@
             }
 
             &.active {
-                background-color: $color-neon-green-beta;
+                background-color: $color-blue-beta;
             }
 
             &.active > td:first-child {

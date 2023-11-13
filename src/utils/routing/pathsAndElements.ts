@@ -1,7 +1,6 @@
 import React from "react";
 
-import { IconSVGProps } from "components/icons/types";
-import DashboardIcon from "components/icons/dashboardIcon";
+import { StringResources } from "utils/language/languageResource";
 export const PortalWrapperLazy = React.lazy(() => import("../../components/wrappers/portalWrapper"));
 
 export const globalElements: IGlobalElement[] = [
@@ -19,20 +18,22 @@ export interface IPortalRouteElement {
     path: string;
     label: string;
     element: React.LazyExoticComponent<() => JSX.Element>;
-    icon: ({ height, width }: IconSVGProps) => JSX.Element;
 }
 
 export const PortalRouteElements: IPortalRouteElement[] = [
     {
         path: "/",
-        label: "Home",
+        label: StringResources.pages.dashboard.title,
         element: React.lazy(() => import("pages/portal/portal")),
-        icon: DashboardIcon,
     },
     {
         path: "/posts",
-        label: "Posts",
+        label: StringResources.pages.posts.title,
         element: React.lazy(() => import("pages/posts/posts")),
-        icon: DashboardIcon,
+    },
+    {
+        path: "/users",
+        label: StringResources.pages.users.title,
+        element: React.lazy(() => import("pages/users/users")),
     },
 ];

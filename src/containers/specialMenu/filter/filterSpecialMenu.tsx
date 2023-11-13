@@ -1,4 +1,3 @@
-import FilterSmallIcon from "components/icons/filterSmallIcon";
 import SpecialMenu from "components/specialMenus/specialMenu";
 import FilterPanelBody from "containers/specialMenu/filter/filterContent/filterPanelContent";
 import FilterFooter from "containers/specialMenu/filter/filterFooter/filterFooter";
@@ -72,7 +71,6 @@ const FilterSpecialMenu = () => {
         <div onKeyDown={isSpecialMenuOpen ? handleKeyDown : undefined} tabIndex={0} style={{ outline: "none" }}>
             <SpecialMenu
                 text={filterText}
-                icon={<FilterSmallIcon />}
                 isMenuOpen={isSpecialMenuOpen}
                 setSpecialMenuVisibilty={setSpecialMenuVisibilty}
                 bodyNode={

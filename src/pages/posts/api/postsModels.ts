@@ -5,76 +5,90 @@ import { StringResources } from "utils/language/languageResource";
 import { t } from "i18next";
 import { IReportDetailsDefinition, IReportFilter } from "api/reportModels";
 import { DetailsRowTypeFormatterEnum, FilterTypeEnum } from "utils/enums";
+import { IBaseTableResponseModel } from "api/requestModels";
+import TableCellDate from "components/tableCellComponents/tableCellDate/tableCellDate";
+import { PATHS } from "utils/routing/paths";
 
-export interface IPostsModel {
-    id: number;
-    title: string;
-    body: string;
-    userId: number;
+export interface IPostsModel extends IBaseTableResponseModel {
+    data: Array<IGetPostsResponseListData>;
 }
 
-const columnHelper = createColumnHelper<IPostsModel>();
+interface IGetPostsResponseListData {
+    id: number;
+    title: string;
+    description: string;
+    userId: number;
+    userName: string;
+    createdTime: string;
+}
+
+const columnHelper = createColumnHelper<IGetPostsResponseListData>();
 export const postsColumnDefinition: any = [
     columnHelper.accessor(x => x.id, {
-        id: nameof<IPostsModel>(x => x.id),
+        id: nameof<IGetPostsResponseListData>(x => x.id),
         header: () => t(StringResources.pages.posts.id),
         cell: info => TableCellDefault({ value: info.getValue() }),
         meta: { visible: false },
     }),
     columnHelper.accessor(x => x.title, {
-        id: nameof<IPostsModel>(x => x.title),
+        id: nameof<IGetPostsResponseListData>(x => x.title),
         header: () => t(StringResources.pages.posts.titleColumn),
         cell: info => TableCellDefault({ value: info.getValue() }),
         meta: { visible: true },
     }),
-    columnHelper.accessor(x => x.body, {
-        id: nameof<IPostsModel>(x => x.body),
+    columnHelper.accessor(x => x.description, {
+        id: nameof<IGetPostsResponseListData>(x => x.description),
         header: () => t(StringResources.pages.posts.body),
         cell: info => TableCellDefault({ value: info.getValue() }),
         meta: { visible: true },
     }),
-    columnHelper.accessor(x => x.userId, {
-        id: nameof<IPostsModel>(x => x.userId),
-        header: () => t(StringResources.pages.posts.userId),
+    columnHelper.accessor(x => x.userName, {
+        id: nameof<IGetPostsResponseListData>(x => x.userName),
+        header: () => t(StringResources.pages.posts.userName),
         cell: info => TableCellDefault({ value: info.getValue() }),
+        meta: { visible: true },
+    }),
+    columnHelper.accessor(x => x.createdTime, {
+        id: nameof<IGetPostsResponseListData>(x => x.createdTime),
+        header: () => t(StringResources.pages.posts.createdTime),
+        cell: info => TableCellDate({ value: info.getValue() }),
         meta: { visible: true, sortDefault: "desc" },
     }),
 ];
 
-export const postsDetailsDefinition: IReportDetailsDefinition<IPostsModel> = {
+export const postsDetailsDefinition: IReportDetailsDefinition<IGetPostsResponseListData> = {
     details: [
         {
-            key: nameof<IPostsModel>(x => x.id),
+            key: nameof<IGetPostsResponseListData>(x => x.id),
             rowType: DetailsRowTypeFormatterEnum.Id,
             label: StringResources.pages.posts.id,
         },
         {
-            key: nameof<IPostsModel>(x => x.title),
+            key: nameof<IGetPostsResponseListData>(x => x.title),
             rowType: DetailsRowTypeFormatterEnum.Text,
             label: StringResources.pages.posts.titleColumn,
         },
         {
-            key: nameof<IPostsModel>(x => x.body),
+            key: nameof<IGetPostsResponseListData>(x => x.description),
             rowType: DetailsRowTypeFormatterEnum.Text,
             label: StringResources.pages.posts.body,
         },
         {
-            key: nameof<IPostsModel>(x => x.userId),
-            rowType: DetailsRowTypeFormatterEnum.Text,
-            label: StringResources.pages.posts.userId,
+            key: nameof<IGetPostsResponseListData>(x => x.userName),
+            rowType: DetailsRowTypeFormatterEnum.Drill,
+            drill: {
+                field: "name",
+                page: PATHS.Portal.Users,
+            },
+            label: StringResources.pages.posts.userName,
         },
     ],
 };
 
 export const postsFilterDefinitions: IReportFilter[] = [
     {
-        field: nameof<IPostsModel>(x => x.id),
-        title: StringResources.pages.posts.id,
-        filterType: FilterTypeEnum.NumberFilter,
-    },
-    {
-        field: nameof<IPostsModel>(x => x.userId),
-        title: StringResources.pages.posts.userId,
-        filterType: FilterTypeEnum.NumberFilter,
+        field: "search",
+        title: StringResources.pages.posts.search,
+        filterType: FilterTypeEnum.TextFilter,
     },
 ];
