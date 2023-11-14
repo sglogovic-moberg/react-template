@@ -5,6 +5,8 @@ import { DetailHeaderEnum } from "utils/enums";
 import { StringResources } from "utils/language/languageResource";
 import "./reportDetailsHeader.scss";
 import { IReportDetailsDefinition } from "api/reportModels";
+import UserHeader from "pages/users/userHeader";
+import PostsHeader from "pages/posts/postsHeader";
 
 interface IReportDetailsHeaderProps {
     detailsDefinitions: IReportDetailsDefinition<any>;
@@ -23,6 +25,10 @@ const ReportDetailsHeaderHandler = (props: IReportDetailsHeaderHandler) => {
     const { t } = useTranslation();
 
     switch (props.header) {
+        case DetailHeaderEnum.Post:
+            return <PostsHeader pageType={pageType} />;
+        case DetailHeaderEnum.User:
+            return <UserHeader pageType={pageType} />;
         case DetailHeaderEnum.Default:
             return (
                 <div className="report-details__title">

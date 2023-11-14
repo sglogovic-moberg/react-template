@@ -31,10 +31,11 @@ const Login = () => {
             password: "",
         },
         validationSchema: Yup.object({
-            username: Yup.string().required(""),
-            password: Yup.string().required(""),
+            username: Yup.string().email().required(),
+            password: Yup.string().min(6).required(),
         }),
         onSubmit: async (values: ILoginForm) => {
+            setLoginInProgress(true);
             setErrorMessage("");
 
             const payload: ILoginParams = {
@@ -47,6 +48,7 @@ const Login = () => {
             } catch (error: any) {
                 setErrorMessage(error?.message);
             }
+            setLoginInProgress(false);
         },
     });
 
@@ -89,6 +91,7 @@ const Login = () => {
                                     value={loginValidation.values["password"]}
                                     onBlur={loginValidation.handleBlur}
                                     onChange={loginValidation.handleChange}
+                                    invalid={loginValidation.touched["password"] && loginValidation.errors["password"]}
                                     disabled={loginInProgress}
                                 />
                             </Form.Group>

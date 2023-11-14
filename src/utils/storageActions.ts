@@ -14,7 +14,7 @@ export const getRefreshToken = () => {
     return storage?.data?.refreshToken;
 };
 
-function getUserLocalStorageData() {
+export function getUserLocalStorageData() {
     const stored = localStorage.getItem("user");
     if (!stored) {
         return undefined;

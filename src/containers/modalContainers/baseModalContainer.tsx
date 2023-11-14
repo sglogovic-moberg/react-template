@@ -8,6 +8,9 @@ import ReportDetailsModal from "containers/modalContainers/reportDetailsModal/re
 import ExportModal from "containers/modalContainers/exportModal/exportModal";
 import SpecialMenuColumnModal from "containers/modalContainers/specialMenuModal/specialMenuColumnModal/specialMenuColumnModal";
 import SpecialMenuFilterModal from "containers/modalContainers/specialMenuModal/specialMenuFilterModal/specialMenuFilterModal";
+import CreateUserModal from "containers/modalContainers/createUser/createUser";
+import CreatePostModal from "containers/modalContainers/createPost/createPost";
+import EditPostModal from "containers/modalContainers/editPost/editPost";
 
 const modalMapping: { [modalType in ModalTypeEnum]: Function } = {
     [ModalTypeEnum.Export]: ExportModal,
@@ -15,6 +18,9 @@ const modalMapping: { [modalType in ModalTypeEnum]: Function } = {
     [ModalTypeEnum.SpecialMenuFilter]: SpecialMenuFilterModal,
     [ModalTypeEnum.Details]: ReportDetailsModal,
     [ModalTypeEnum.Confirm]: BaseModal,
+    [ModalTypeEnum.CreateUser]: CreateUserModal,
+    [ModalTypeEnum.CreatePost]: CreatePostModal,
+    [ModalTypeEnum.EditPost]: EditPostModal,
     [ModalTypeEnum.None]: () => {
         <></>;
     },

@@ -13,7 +13,6 @@ const users = () => {
                 columnDefinitions={usersColumnDefinition}
                 detailsDefinitions={usersDetailsDefinition}
                 filterDefinitions={usersFilterDefinitions}
-                // exportRoute={usersExportRoute}
             />
         </>
     );

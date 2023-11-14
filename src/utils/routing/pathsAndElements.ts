@@ -1,4 +1,5 @@
 import React from "react";
+import { UserRoleEnum } from "utils/enums";
 
 import { StringResources } from "utils/language/languageResource";
 export const PortalWrapperLazy = React.lazy(() => import("../../components/wrappers/portalWrapper"));
@@ -18,14 +19,10 @@ export interface IPortalRouteElement {
     path: string;
     label: string;
     element: React.LazyExoticComponent<() => JSX.Element>;
+    permission?: UserRoleEnum;
 }
 
 export const PortalRouteElements: IPortalRouteElement[] = [
-    {
-        path: "/",
-        label: StringResources.pages.dashboard.title,
-        element: React.lazy(() => import("pages/portal/portal")),
-    },
     {
         path: "/posts",
         label: StringResources.pages.posts.title,
@@ -35,5 +32,6 @@ export const PortalRouteElements: IPortalRouteElement[] = [
         path: "/users",
         label: StringResources.pages.users.title,
         element: React.lazy(() => import("pages/users/users")),
+        permission: UserRoleEnum.Admin,
     },
 ];

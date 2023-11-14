@@ -1,0 +1,23 @@
+.base-modal-details {
+    &__modal-body {
+        overflow: scroll;
+        height: 65vh;
+        padding: 0.5rem 1px !important;
+    }
+
+    .modal-content {
+        width: 500px;
+    }
+
+    .base-modal-details__modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

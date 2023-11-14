@@ -4,11 +4,13 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
 import { adminLogoutThunk } from "redux/actions/authActions";
-import { useAppDispatch } from "redux/store";
+import { RootState, useAppDispatch } from "redux/store";
 import { StringResources } from "utils/language/languageResource";
 import { PortalRouteElements } from "utils/routing/pathsAndElements";
 import { setRedirectToLastRoute } from "utils/storageActions";
 import "./mainNavigation.scss";
+import { GlobalLangaugeSelector } from "components/languageSelector/languageSelector";
+import { useSelector } from "react-redux";
 
 interface IMainNavigationProps {
     isOpen: boolean;
@@ -21,6 +23,7 @@ const MainNavigation = ({ isOpen, isExpanded, closeNavigation }: IMainNavigation
     const { t } = useTranslation();
     let location = useLocation();
     const [isMainNavScrollable, setIsMainNavScrollable] = useState(false);
+    const currentPermission = useSelector((state: RootState) => state.auth.userRole);
 
     useEffect(() => {
         // Calculation for the thin border that appears on the top side of the bottom (secondary) navigation when the window height is smaller than the overall height of the navigation.
@@ -62,6 +65,9 @@ const MainNavigation = ({ isOpen, isExpanded, closeNavigation }: IMainNavigation
             <div className={"main-nav__list-wrap"}>
                 <ul className="main-nav__list main-nav__list--primary">
                     {PortalRouteElements.map((navItem, index) => {
+                        if (navItem.permission && navItem.permission !== currentPermission) {
+                            return;
+                        }
                         return (
                             <li className="main-nav__list-item" key={index}>
                                 <OverlayTrigger
@@ -90,6 +96,7 @@ const MainNavigation = ({ isOpen, isExpanded, closeNavigation }: IMainNavigation
                         "main-nav__list--with-border": isMainNavScrollable,
                     })}
                 >
+                    <GlobalLangaugeSelector className="app-login__lang-select" />
                     <li className="main-nav__list-item main-nav__list-item--with-extra-spacing">
                         <button className="main-nav__logout-action" onClick={logOut}>
                             <span className="main-nav__action-text">{`${t(

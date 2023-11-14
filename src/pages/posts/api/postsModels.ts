@@ -4,7 +4,7 @@ import { nameof } from "ts-simple-nameof";
 import { StringResources } from "utils/language/languageResource";
 import { t } from "i18next";
 import { IReportDetailsDefinition, IReportFilter } from "api/reportModels";
-import { DetailsRowTypeFormatterEnum, FilterTypeEnum } from "utils/enums";
+import { DetailHeaderEnum, DetailsRowTypeFormatterEnum, FilterTypeEnum } from "utils/enums";
 import { IBaseTableResponseModel } from "api/requestModels";
 import TableCellDate from "components/tableCellComponents/tableCellDate/tableCellDate";
 import { PATHS } from "utils/routing/paths";
@@ -83,6 +83,7 @@ export const postsDetailsDefinition: IReportDetailsDefinition<IGetPostsResponseL
             label: StringResources.pages.posts.userName,
         },
     ],
+    header: DetailHeaderEnum.Post,
 };
 
 export const postsFilterDefinitions: IReportFilter[] = [

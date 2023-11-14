@@ -1,14 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ILoginParams } from "redux/models/authModels";
-import { executeAxiosRequest } from "redux/services";
+import { executeAxiosRequestWithRefresh } from "redux/services";
 import { reduxAction } from "utils/constants";
-import { getRefreshToken, getToken, removeUserLocalStorageData, setUserLocalStorageData } from "utils/storageActions";
+import {
+    getToken,
+    getUserLocalStorageData,
+    removeUserLocalStorageData,
+    setUserLocalStorageData,
+} from "utils/storageActions";
 
-export const authAdminThunk = createAsyncThunk("auth/authAdmin", async data => {
+export const authAdminThunk = createAsyncThunk("auth/authAdmin", async (data, thunkAPI) => {
     // Usually some BE call here to check if user token is valid and authorized.
     // For now, just check if token is present.
     if (getToken()) {
-        return true;
+        return getUserLocalStorageData();
     } else {
         throw new Error("Unauthorized");
     }
@@ -16,13 +21,14 @@ export const authAdminThunk = createAsyncThunk("auth/authAdmin", async data => {
 
 export const adminLoginThunk = createAsyncThunk("auth/adminLogin", async (params: ILoginParams, thunkAPI) => {
     try {
-        // usualy some sort of BE call here to login user
-        const response = {
+        const response = await executeAxiosRequestWithRefresh({
+            url: "/login",
+            method: "POST",
             data: {
-                refreshToken: "refreshToken",
-                token: "token",
+                username: params.username,
+                password: params.password,
             },
-        };
+        });
 
         setUserLocalStorageData(response.data);
 

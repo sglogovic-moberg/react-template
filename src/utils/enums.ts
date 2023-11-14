@@ -18,6 +18,9 @@ export enum ModalTypeEnum {
     SpecialMenuFilter = 3,
     SpecialMenuColumn = 4,
     Export = 5,
+    CreateUser = 6,
+    CreatePost = 7,
+    EditPost = 8,
 }
 
 export enum ModalActionButtonTypeEnum {
@@ -55,6 +58,8 @@ export enum DetailSectionEnum {
 export enum DetailHeaderEnum {
     None = 0,
     Default = 1,
+    User = 2,
+    Post = 3,
 }
 
 export enum ExportType {
@@ -65,4 +70,10 @@ export enum ExportType {
 export enum ExportColumn {
     All = "0",
     VisibleColumns = "1",
+}
+
+export enum UserRoleEnum {
+    None = 0,
+    Admin = 1,
+    User = 2,
 }

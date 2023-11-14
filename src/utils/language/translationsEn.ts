@@ -10,6 +10,11 @@ export const translationsEn = {
     [StringResources.modal.submit]: "Submit",
     [StringResources.modal.filter]: "Filter",
     [StringResources.modal.column]: "Column",
+    [StringResources.modal.createUser.name]: "Name",
+    [StringResources.modal.createPost.title]: "Title",
+    [StringResources.modal.createPost.description]: "Description",
+    [StringResources.modal.createPost.createPost]: "Create",
+    [StringResources.modal.createPost.editPost]: "Edit",
 
     [StringResources.table.fallbackMessage]: "No data found{{fallbackMessageAddon}}.",
     [StringResources.table.fallbackMessageWithFilter]: " - try adjusting your filter settings",
@@ -34,6 +39,10 @@ export const translationsEn = {
     [StringResources.pages.posts.userName]: "User Name",
     [StringResources.pages.posts.createdTime]: "Created Time",
     [StringResources.pages.posts.search]: "Search",
+    [StringResources.pages.posts.createPost]: "Create",
+    [StringResources.pages.posts.delete]: "Delete",
+    [StringResources.pages.posts.editPost]: "Edit",
+
     [StringResources.mainNavigation.logout]: "Logout",
     [StringResources.mainNavigation.title]: "Main Navigation",
     [StringResources.login.title]: "Login",
@@ -48,6 +57,8 @@ export const translationsEn = {
     [StringResources.pages.users.name]: "Name",
     [StringResources.pages.users.email]: "Email",
     [StringResources.pages.users.createdTime]: "Created Time",
+    [StringResources.pages.users.delete]: "Delete",
+    [StringResources.pages.users.createUser]: "Create",
 
     [StringResources.columnChooser.cancel]: "Cancel",
     [StringResources.columnChooser.column]: "Column",

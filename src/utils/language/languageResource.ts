@@ -11,6 +11,15 @@ export const StringResources = {
         submit: "modal.submit",
         column: "modal.column",
         filter: "modal.filter",
+        createUser: {
+            name: "modal.createUser.name",
+        },
+        createPost: {
+            title: "modal.createPost.title",
+            description: "modal.createPost.description",
+            createPost: "modal.createPost.createPost",
+            editPost: "modal.createPost.editPost",
+        },
     },
     login: {
         title: "login.title",
@@ -51,6 +60,9 @@ export const StringResources = {
             userName: "pages.posts.userName",
             createdTime: "pages.posts.createdTime",
             search: "pages.posts.search",
+            createPost: "pages.posts.createPost",
+            delete: "pages.posts.delete",
+            editPost: "pages.posts.editPost",
         },
         [PageTypeEnum.Users]: {
             title: "pages.users.title",
@@ -58,6 +70,8 @@ export const StringResources = {
             name: "pages.users.name",
             email: "pages.users.email",
             createdTime: "pages.users.createdTime",
+            delete: "pages.users.delete",
+            createUser: "pages.users.createUser",
         },
     },
     filter: {

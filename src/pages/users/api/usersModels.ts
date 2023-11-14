@@ -5,7 +5,7 @@ import TableCellDate from "components/tableCellComponents/tableCellDate/tableCel
 import TableCellDefault from "components/tableCellComponents/tableCellDefault/tableCellDefault";
 import { t } from "i18next";
 import { nameof } from "ts-simple-nameof";
-import { DetailsRowTypeFormatterEnum, FilterTypeEnum } from "utils/enums";
+import { DetailHeaderEnum, DetailsRowTypeFormatterEnum, FilterTypeEnum } from "utils/enums";
 import { StringResources } from "utils/language/languageResource";
 
 export interface IUsersModel extends IBaseTableResponseModel {
@@ -65,6 +65,8 @@ export const usersDetailsDefinition: IReportDetailsDefinition<IGetUsersResponseL
             label: StringResources.pages.users.email,
         },
     ],
+    sections: [],
+    header: DetailHeaderEnum.User,
 };
 
 export const usersFilterDefinitions: IReportFilter[] = [
