@@ -3,7 +3,6 @@ import { IQueryParams } from "api/requestModels";
 import { IUsersModel } from "pages/users/api/usersModels";
 
 const basePostsRoute = "/users";
-export const postsExportRoute = `${basePostsRoute}/report`;
 
 const userApi = baseApi.injectEndpoints({
     endpoints: builder => ({

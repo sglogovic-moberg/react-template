@@ -45,7 +45,7 @@ const CreatePostModal = () => {
             const payload = {
                 title: values.title,
                 description: values.description,
-                id: activeRow.userId,
+                userId: activeRow.userId,
             };
 
             try {

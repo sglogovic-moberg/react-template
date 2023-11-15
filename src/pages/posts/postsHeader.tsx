@@ -1,6 +1,7 @@
 import BaseButton from "components/baseButton/baseButton";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { deletePostThunk } from "redux/actions/postsActions";
 import { setQueryFilters } from "redux/reducers/reportReducer";
 import { RootState, useAppDispatch } from "redux/store";
@@ -20,8 +21,12 @@ const PostsHeader = (props: IPostsHeaderProps) => {
     const modalManagement = useModalManagement();
 
     const onClick = async () => {
-        await dispatch(deletePostThunk(activeRow.id));
-        await dispatch(setQueryFilters({ ...queryFilters, random: new Date().toISOString() }));
+        try {
+            await dispatch(deletePostThunk(activeRow.id)).unwrap();
+            await dispatch(setQueryFilters({ ...queryFilters, random: new Date().toISOString() }));
+        } catch (error: any) {
+            toast.error(error.message);
+        }
     };
 
     const onCreateClick = async () => {
