@@ -2,6 +2,8 @@ import axios from "api/axiosApiClient";
 import { CustomAxiosRequestConfig } from "api/requestModels";
 import { Mutex } from "async-mutex";
 import { AxiosError } from "axios";
+import { unInitializedAdmin } from "redux/reducers/authReducer";
+import store from "redux/store";
 import { SupportedLanguageEnum } from "utils/enums";
 import { getRefreshToken, getToken, setUserLocalStorageData } from "utils/storageActions";
 
@@ -34,6 +36,7 @@ export const executeAxiosRequestWithRefresh = async (config: CustomAxiosRequestC
                             // Retry initial query
                             result = await executeAxiosRequest(config);
                         } else {
+                            store.dispatch(unInitializedAdmin());
                             return Promise.reject(result.error);
                         }
                     } finally {
